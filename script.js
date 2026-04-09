@@ -47,56 +47,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 2. Handle Guestbook
     const form = document.getElementById("guestbook-form");
-    const entriesDiv = document.getElementById("guestbook-entries");
-    const STORAGE_KEY = "eddie_birthday_guestbook";
+    const successMsg = document.getElementById("guestbook-success");
+    const errorMsg = document.getElementById("guestbook-error");
+    const submitBtn = form.querySelector("button[type='submit']");
 
-    // Load existing messages
-    const loadMessages = () => {
-        const messages = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-        entriesDiv.innerHTML = "";
-        
-        messages.forEach(msg => {
-            const card = document.createElement("div");
-            card.className = "entry-card fade-in visible";
-            
-            const nameEl = document.createElement("div");
-            nameEl.className = "entry-name";
-            nameEl.textContent = msg.name;
-            
-            const textEl = document.createElement("div");
-            textEl.className = "entry-text";
-            textEl.textContent = msg.message;
-            
-            card.appendChild(nameEl);
-            card.appendChild(textEl);
-            entriesDiv.prepend(card); // newest first
-        });
-    };
-
-    loadMessages();
-
-    // Submit new message
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
         
-        const nameInput = document.getElementById("gb-name").value.trim();
-        const messageInput = document.getElementById("gb-message").value.trim();
+        successMsg.style.display = "none";
+        errorMsg.style.display = "none";
         
-        if (nameInput && messageInput) {
-            const messages = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-            messages.push({
-                name: nameInput,
-                message: messageInput,
-                date: new Date().toISOString()
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = "Sending...";
+        submitBtn.disabled = true;
+        
+        const data = new FormData(form);
+        
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
             });
             
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
-            
-            // Clear form
-            form.reset();
-            
-            // Reload messages
-            loadMessages();
+            if (response.ok) {
+                successMsg.style.display = "block";
+                form.reset();
+            } else {
+                errorMsg.style.display = "block";
+            }
+        } catch (error) {
+            errorMsg.style.display = "block";
         }
+        
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
     });
 });

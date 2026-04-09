@@ -95,13 +95,14 @@
             <h2 class="playfair center-text">Guestbook</h2>
             <p class="poppins-light center-text sub-text">Leave a message for Eddie.</p>
             
-            <form id="guestbook-form">
-                <input type="text" id="gb-name" class="poppins-light" placeholder="Your Name" required>
-                <textarea id="gb-message" class="poppins-light" rows="4" placeholder="Your birthday message..." required></textarea>
+            <form id="guestbook-form" action="https://formspree.io/f/xbdpvllv" method="POST">
+                <input type="text" id="gb-name" name="name" class="poppins-light" placeholder="Your Name" required>
+                <textarea id="gb-message" name="message" class="poppins-light" rows="4" placeholder="Your birthday message..." required></textarea>
                 <button type="submit" class="playfair">Sign Guestbook</button>
             </form>
             
-            <div id="guestbook-entries"></div>
+            <p id="guestbook-success" class="poppins-light center-text sub-text" style="display: none; margin-top: 2rem;">Thank you! Your message has been sent.</p>
+            <p id="guestbook-error" class="poppins-light center-text sub-text" style="display: none; margin-top: 2rem; color: #d32f2f;">Oops! There was a problem submitting your form.</p>
         </div>
     </section>
 
