@@ -32,6 +32,27 @@
         <div class="container">
             <h2 class="playfair">The Challenge</h2>
             <p class="poppins-light challenge-text">There’s a Rubik’s cube on the table in front of you. The first guest to solve theirs wins $100 cash. Good luck.</p>
+            
+            <div id="tictactoe-container" class="fade-in">
+                <div class="ttt-scoreboard poppins-light">
+                    <div>Won: <span id="ttt-won">0</span></div>
+                    <div>Draw: <span id="ttt-draw">0</span></div>
+                    <div>Lost: <span id="ttt-lost">0</span></div>
+                </div>
+                <div class="ttt-status playfair" id="ttt-status">Your turn (X)</div>
+                <div class="ttt-board" id="ttt-board">
+                    <div class="ttt-cell playfair" data-index="0"></div>
+                    <div class="ttt-cell playfair" data-index="1"></div>
+                    <div class="ttt-cell playfair" data-index="2"></div>
+                    <div class="ttt-cell playfair" data-index="3"></div>
+                    <div class="ttt-cell playfair" data-index="4"></div>
+                    <div class="ttt-cell playfair" data-index="5"></div>
+                    <div class="ttt-cell playfair" data-index="6"></div>
+                    <div class="ttt-cell playfair" data-index="7"></div>
+                    <div class="ttt-cell playfair" data-index="8"></div>
+                </div>
+                <button id="ttt-reset" class="playfair">Play Again</button>
+            </div>
         </div>
     </section>
 

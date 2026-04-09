@@ -158,6 +158,75 @@ section {
     margin: 0 auto;
 }
 
+/* Tic Tac Toe */
+#tictactoe-container {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ttt-scoreboard {
+    display: flex;
+    gap: 2rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+}
+
+.ttt-status {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    height: 2rem;
+    text-align: center;
+}
+
+.ttt-board {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 1px;
+    background-color: #000;
+    margin-bottom: 2.5rem;
+    border: 1px solid #000;
+}
+
+.ttt-cell {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ttt-cell:hover:not(.taken) {
+    background-color: #f7f7f7;
+}
+
+.ttt-cell.taken {
+    cursor: default;
+}
+
+#ttt-reset {
+    padding: 1rem 2rem;
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #000;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s;
+}
+
+#ttt-reset:hover {
+    background-color: #000;
+    color: #fff;
+}
+
 /* 3. Menu Section */
 #menu {
     padding: 8rem 0 10rem 0;
