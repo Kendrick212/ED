@@ -20,6 +20,78 @@ const guests = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+    // 0. Setup Custom Persistent Canvas
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.zIndex = '-1';
+    canvas.style.pointerEvents = 'none';
+    document.body.appendChild(canvas);
+
+    const customConfetti = confetti.create(canvas, {
+        resize: true,
+        useWorker: true
+    });
+
+    // Fire Confetti Bursts
+    setTimeout(() => {
+        // Left edge burst
+        customConfetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { x: 0, y: 0.6 },
+            angle: 60
+        });
+        
+        // Right edge burst
+        customConfetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { x: 1, y: 0.6 },
+            angle: 120
+        });
+    }, 250);
+
+    // Simulate Settled Floor Confetti
+    const floorBox = document.createElement('div');
+    floorBox.style.position = 'absolute';
+    floorBox.style.bottom = '0';
+    floorBox.style.left = '0';
+    floorBox.style.width = '100%';
+    floorBox.style.height = '200px';
+    floorBox.style.overflow = 'hidden';
+    floorBox.style.zIndex = '0';
+    floorBox.style.pointerEvents = 'none';
+    
+    document.body.style.position = 'relative';
+
+    const colors = ['#26ccff', '#a25afd', '#ff5e7e', '#88ff5a', '#fcff42', '#ffa62d', '#ff36ff'];
+    for (let i = 0; i < 120; i++) {
+        const conf = document.createElement('div');
+        conf.style.position = 'absolute';
+        conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        const isRect = Math.random() > 0.5;
+        conf.style.width = isRect ? '10px' : '8px';
+        conf.style.height = isRect ? '20px' : '8px';
+        
+        conf.style.left = Math.random() * 100 + '%';
+        const bottomOffset = Math.pow(Math.random(), 3) * 150; 
+        conf.style.bottom = bottomOffset + 'px';
+        
+        const rot = Math.random() * 360;
+        const tiltX = Math.random() * 60;
+        const tiltY = Math.random() * 60;
+        conf.style.transform = `rotate(${rot}deg) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+        conf.style.opacity = (Math.random() * 0.4 + 0.6).toString();
+        
+        floorBox.appendChild(conf);
+    }
+    document.body.appendChild(floorBox);
+
     // 1. Handle Guest Greeting
     const urlParams = new URLSearchParams(window.location.search);
     let guestParam = urlParams.get('guest');
