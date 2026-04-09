@@ -1,0 +1,364 @@
+/* Reset & Base Settings */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fff;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* Typography */
+.playfair {
+    font-family: 'Playfair Display', serif;
+}
+
+.poppins {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.poppins-light {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+p, ul, li {
+    line-height: 1.6;
+}
+
+/* Layout Containers */
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 5rem 0;
+}
+
+.center-text {
+    text-align: center;
+}
+
+/* Sections */
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.section-dark {
+    background-color: #000;
+    color: #fff;
+}
+
+.section-light {
+    background-color: #fff;
+    color: #000;
+}
+
+.section-gray {
+    background-color: #f7f7f7;
+    color: #000;
+}
+
+/* 1. Greeting Section */
+#greeting {
+    text-align: center;
+}
+
+#welcome-name {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    margin-bottom: 1.5rem;
+    text-transform: none; /* Keep name case normal */
+    letter-spacing: 0;
+}
+
+#welcome-message {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    max-width: 85%;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.scroll-indicator a:hover {
+    opacity: 1;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-15px) translateX(-50%); }
+    60% { transform: translateY(-7px) translateX(-50%); }
+}
+
+/* 2. Challenge Section */
+#challenge h2 {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.challenge-text {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* 3. Menu Section */
+#menu {
+    padding: 8rem 0;
+    justify-content: flex-start;
+}
+
+.menu-header {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.oversized-text {
+    font-size: clamp(5rem, 20vw, 12rem);
+    white-space: nowrap;
+    position: relative;
+    left: -5%;
+    line-height: 0.85;
+    text-transform: lowercase;
+    opacity: 0.05;
+    color: #000;
+}
+
+.menu-content {
+    padding-top: 0;
+    padding-bottom: 2rem;
+    z-index: 2;
+}
+
+.menu-category {
+    margin-bottom: 3.5rem;
+    padding-left: 5%;
+}
+
+.menu-category h3 {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.menu-category ul {
+    list-style: none;
+}
+
+.menu-category li {
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.menu-footer {
+    width: 100%;
+    margin-top: auto;
+    position: relative;
+    height: 15vw;
+    min-height: 100px;
+    overflow: hidden;
+}
+
+.oversized-quote {
+    font-size: clamp(3rem, 12vw, 8rem);
+    position: absolute;
+    bottom: -20%;
+    right: 0%;
+    white-space: nowrap;
+    text-transform: none;
+    letter-spacing: -0.02em;
+}
+
+/* 4. Timeline Section */
+#evening h2 {
+    font-size: 1.25rem;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.timeline {
+    border-left: 1px solid #000;
+    padding-left: 2.5rem;
+    margin-left: max(1rem, calc(50% - 120px));
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.85rem;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.time {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.event {
+    display: block;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+/* 5. Guestbook Section */
+#guestbook h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.sub-text {
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: #000;
+}
+
+button {
+    padding: 1.2rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: background-color 0.3s;
+    margin-top: 0.5rem;
+}
+
+button:hover {
+    background-color: #222;
+}
+
+/* Guestbook Entries */
+#guestbook-entries {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.entry-card {
+    background: #fff;
+    padding: 2rem;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+
+.entry-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    text-transform: capitalize;
+}
+
+.entry-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+    .menu-category {
+        padding-left: 20%;
+    }
+    
+    .timeline {
+        margin-left: max(1rem, calc(50% - 150px));
+    }
+}

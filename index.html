@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eddie's Birthday Dinner</title>
+    <!-- Simple cake emoji favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎂</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 1. GREETING -->
+    <section id="greeting" class="section-dark">
+        <div class="container fade-in">
+            <h1 id="welcome-name" class="playfair">Welcome.</h1>
+            <p id="welcome-message" class="poppins-light">Tonight is a celebration, and we are glad you are here.</p>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#challenge" aria-label="Scroll down">↓</a>
+        </div>
+    </section>
+
+    <!-- 2. THE CHALLENGE -->
+    <section id="challenge" class="section-light">
+        <div class="container">
+            <h2 class="playfair">The Challenge</h2>
+            <p class="poppins-light challenge-text">There’s a Rubik’s cube on the table in front of you. The first guest to solve theirs wins $100 cash. Good luck.</p>
+        </div>
+    </section>
+
+    <!-- 3. THE MENU -->
+    <section id="menu" class="section-light">
+        <div class="menu-header">
+            <h2 class="playfair oversized-text">the menu</h2>
+        </div>
+        <div class="container menu-content">
+            <div class="menu-category">
+                <h3 class="poppins">FOOD</h3>
+                <ul class="poppins-light">
+                    <li>Jollof Rice & Turkey</li>
+                    <li>Jollof Rice & Chicken</li>
+                    <li>Jollof Rice & Beef</li>
+                </ul>
+            </div>
+            <div class="menu-category">
+                <h3 class="poppins">DRINKS</h3>
+                <ul class="poppins-light">
+                    <li>Carlo Rossi Red Wine</li>
+                    <li>Four Cousins Red Wine</li>
+                    <li>Frontera Red Wine</li>
+                    <li>Water</li>
+                </ul>
+            </div>
+        </div>
+        <div class="menu-footer">
+            <p class="playfair oversized-quote"><i>Tonight we feast.</i></p>
+        </div>
+    </section>
+
+    <!-- 4. THE EVENING -->
+    <section id="evening" class="section-light">
+        <div class="container">
+            <h2 class="playfair">The Evening</h2>
+            <div class="timeline poppins-light">
+                <div class="timeline-item">
+                    <span class="time">7:00 PM</span>
+                    <span class="event">Arrival & Drinks</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="time">8:00 PM</span>
+                    <span class="event">Dinner</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="time">9:30 PM</span>
+                    <span class="event">Toasts</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="time">10:00 PM</span>
+                    <span class="event">Celebration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. GUESTBOOK -->
+    <section id="guestbook" class="section-gray">
+        <div class="container">
+            <h2 class="playfair center-text">Guestbook</h2>
+            <p class="poppins-light center-text sub-text">Leave a message for Eddie.</p>
+            
+            <form id="guestbook-form">
+                <input type="text" id="gb-name" class="poppins-light" placeholder="Your Name" required>
+                <textarea id="gb-message" class="poppins-light" rows="4" placeholder="Your birthday message..." required></textarea>
+                <button type="submit" class="playfair">Sign Guestbook</button>
+            </form>
+            
+            <div id="guestbook-entries"></div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
