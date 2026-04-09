@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function startGame() {
         gameActive = true;
-        statusTxt.textContent = "Your turn (X)";
+        statusTxt.textContent = "Your Turn";
         origBoard = Array.from(Array(9).keys());
         cells.forEach(cell => {
             cell.textContent = '';
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (gameActive && typeof origBoard[square.target.dataset.index] == 'number') {
             turn(square.target.dataset.index, huPlayer);
             if (!checkTie() && gameActive) {
-                statusTxt.textContent = "Computer is thinking...";
+                statusTxt.textContent = "Eddie's Turn";
                 setTimeout(() => turn(bestSpot(), aiPlayer), 300);
             }
         }
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (gameWon) gameOver(gameWon);
         else {
             if (player === aiPlayer && gameActive) {
-                statusTxt.textContent = "Your turn (X)";
+                statusTxt.textContent = "Your Turn";
                 checkTie();
             }
         }
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
             scores.won++;
             wonEl.textContent = scores.won;
         } else {
-            statusTxt.textContent = "Computer Won!";
+            statusTxt.textContent = "Eddie Won!";
             scores.lost++;
             lostEl.textContent = scores.lost;
         }
