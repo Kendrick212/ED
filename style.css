@@ -150,22 +150,22 @@ section {
 
 /* 3. Menu Section */
 #menu {
-    padding: 8rem 0;
+    padding: 8rem 0 10rem 0;
     justify-content: flex-start;
 }
 
 .menu-header {
     width: 100%;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     margin-bottom: 3rem;
+    padding-left: 5%;
 }
 
 .oversized-text {
     font-size: clamp(5rem, 20vw, 12rem);
     white-space: nowrap;
     position: relative;
-    left: -5%;
     line-height: 0.85;
     text-transform: lowercase;
     opacity: 0.05;
@@ -206,19 +206,18 @@ section {
     width: 100%;
     margin-top: auto;
     position: relative;
-    height: 15vw;
-    min-height: 100px;
-    overflow: hidden;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    text-align: right;
+    overflow: visible;
 }
 
 .oversized-quote {
     font-size: clamp(3rem, 12vw, 8rem);
-    position: absolute;
-    bottom: -20%;
-    right: 0%;
     white-space: nowrap;
     text-transform: none;
     letter-spacing: -0.02em;
+    display: inline-block;
 }
 
 /* 4. Timeline Section */
