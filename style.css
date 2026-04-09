@@ -159,12 +159,12 @@ section {
     position: relative;
     overflow: visible;
     margin-bottom: 3rem;
-    padding-left: 5%;
+    padding-left: 0;
 }
 
 .oversized-text {
-    font-size: clamp(5rem, 20vw, 12rem);
-    white-space: nowrap;
+    font-size: clamp(7rem, 25vw, 15rem);
+    white-space: normal;
     position: relative;
     line-height: 0.85;
     text-transform: lowercase;
@@ -213,11 +213,12 @@ section {
 }
 
 .oversized-quote {
-    font-size: clamp(3rem, 12vw, 8rem);
+    font-size: clamp(2rem, 8vw, 6rem);
     white-space: nowrap;
     text-transform: none;
     letter-spacing: -0.02em;
     display: inline-block;
+    margin-right: 0;
 }
 
 /* 4. Timeline Section */
