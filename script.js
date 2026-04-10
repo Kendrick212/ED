@@ -5,7 +5,7 @@ const guests = {
   "kendrick": { "message": "Kendrick, few people bring the kind of energy you do. Eddie wouldn't have this night without you in his corner." },
   "teygah": { "message": "Tega, your bond with Eddie is one of a kind. Tonight we celebrate him, and that includes celebrating you too." },
   "vincent": { "message": "Vicent, you've shown up for Eddie in ways that matter. Tonight, we're glad you're here." },
-  "goddey": { "message": "Goddey, Eddie keeps the real ones close — and you're proof of that. Welcome." },
+  "godwin": { "message": "Goddey, Eddie keeps the real ones close — and you're proof of that. Welcome." },
   "gabby": { "message": "Gabby, your friendship with Eddie is something special. Tonight is a celebration of him and everyone he loves." },
   "emmanuel": { "message": "Emmanuel, Eddie speaks of you with nothing but love. We're glad you made it tonight." },
   "jeffery": { "message": "Ekhoe, your presence at this table means a lot. Tonight we celebrate a great man together." },
